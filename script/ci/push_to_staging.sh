@@ -3,19 +3,19 @@
 set -e
 source ./script/ci/includes.sh
 
-# Add staging git remote if required
-ST2_TEST=`git remote | grep -s 'staging2' || true`
-if [[ "$ST2_TEST" != *staging2* ]]; then
-    git remote add staging2 openfoodweb@ofn-staging2:apps/openfoodweb/current
-fi
+echo "--- Checking environment variables"
+echo "STAGING_SSH_HOST=$STAGING_SSH_HOST"
+test -n "$STAGING_SSH_HOST"
+echo "STAGING_CURRENT_PATH=$STAGING_CURRENT_PATH"
+test -n "$STAGING_CURRENT_PATH"
 
 echo "--- Verifying branch is based on current master"
 exit_unless_master_merged
 
 echo "--- Loading baseline data"
-ssh ofn-staging2 "/home/openfoodweb/apps/openfoodweb/current/script/ci/load_staging_baseline.sh"
+ssh "$STAGING_SSH_HOST" "$STAGING_CURRENT_PATH/script/ci/load_staging_baseline.sh"
 
 echo "--- Pushing to staging"
 exec 5>&1
-OUTPUT=$(git push staging2 `get_ofn_commit`:master --force 2>&1 |tee /dev/fd/5)
+OUTPUT=$(git push "$STAGING_SSH_HOST" `get_ofn_commit`:master --force 2>&1 |tee /dev/fd/5)
 [[ $OUTPUT =~ "Done" ]]
