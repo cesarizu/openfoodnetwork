@@ -37,6 +37,7 @@ function succeed_if_master_merged {
 function set_ofn_commit {
     echo "Setting commit to $1"
     buildkite-agent meta-data set "openfoodnetwork:git:commit" $1
+    echo "Commit set to $1"
 }
 
 function get_ofn_commit {
