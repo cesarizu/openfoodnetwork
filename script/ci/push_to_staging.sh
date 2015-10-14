@@ -3,6 +3,12 @@
 set -e
 source ./script/ci/includes.sh
 
+echo "--- Checking commit variable"
+OFN_COMMIT=$(get_ofn_commit)
+${OFN_COMMIT:=$BUILDKITE_COMMIT}
+echo "OFN_COMMIT=$OFN_COMMIT"
+test -n "$OFN_COMMIT"
+
 echo "--- Checking environment variables"
 echo "STAGING_SSH_HOST=$STAGING_SSH_HOST"
 test -n "$STAGING_SSH_HOST"
