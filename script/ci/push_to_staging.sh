@@ -5,7 +5,9 @@ source ./script/ci/includes.sh
 
 echo "--- Checking commit variable"
 OFN_COMMIT=$(get_ofn_commit)
-${OFN_COMMIT:=$BUILDKITE_COMMIT}
+if [ "$OFN_COMMIT" = 'OFN_COMMIT_NOT_FOUND']; then
+  OFN_COMMIT=$BUILDKITE_COMMIT
+fi
 echo "OFN_COMMIT=$OFN_COMMIT"
 test -n "$OFN_COMMIT"
 
