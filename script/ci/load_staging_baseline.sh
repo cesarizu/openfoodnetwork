@@ -8,12 +8,12 @@ set -e
 source "`dirname $0`/includes.sh"
 
 echo "Checking environment variables"
-require_env_vars CURRENT_PATH APP DB_HOST DB_USER DB
+require_env_vars CURRENT_PATH SERVICE DB_HOST DB_USER DB
 
 cd "$CURRENT_PATH"
 
 echo "Stopping unicorn and delayed job..."
-service "$APP" stop
+service "$SERVICE" stop
 RAILS_ENV=staging script/delayed_job -i 0 stop
 
 echo "Backing up current data..."
@@ -25,7 +25,7 @@ drop_and_recreate_database "$DB"
 gunzip -c db/backup/staging-baseline.sql.gz |psql -h "$DB_HOST" -U "$DB_USER" "$DB"
 
 echo "Restarting unicorn..."
-service "$APP" start
+service "$SERVICE" start
 # Delayed job is restarted by monit
 
 echo "Done!"

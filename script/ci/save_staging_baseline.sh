@@ -12,7 +12,7 @@ set -e
 source "`dirname $0`/includes.sh"
 
 echo "Checking environment variables"
-require_env_vars CURRENT_PATH APP DB_HOST DB_USER DB
+require_env_vars CURRENT_PATH SERVICE DB_HOST DB_USER DB
 
 cd "$CURRENT_PATH"
 if [[ `git rev-parse HEAD` == $1 ]]; then
