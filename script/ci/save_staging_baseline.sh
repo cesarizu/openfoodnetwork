@@ -11,7 +11,7 @@
 set -e
 source "`dirname $0`/includes.sh"
 
-echo "--- Checking environment variables"
+echo "Checking environment variables"
 require_env_vars CURRENT_PATH APP DB_HOST DB_USER DB
 
 cd "$CURRENT_PATH"
@@ -21,4 +21,5 @@ if [[ `git rev-parse HEAD` == $1 ]]; then
     echo "Staging baseline data saved."
 else
     echo "Staging SHA does not match production, we will not save staging baseline data."
+    echo "'`git rev-parse HEAD`' is not '$1'"
 fi

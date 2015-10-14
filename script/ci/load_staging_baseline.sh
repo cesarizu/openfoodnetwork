@@ -7,7 +7,7 @@
 set -e
 source "`dirname $0`/includes.sh"
 
-echo "--- Checking environment variables"
+echo "Checking environment variables"
 require_env_vars CURRENT_PATH APP DB_HOST DB_USER DB
 
 cd "$CURRENT_PATH"
