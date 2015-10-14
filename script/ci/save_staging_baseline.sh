@@ -9,8 +9,12 @@
 # current code checked out.
 
 set -e
+source "`dirname $0`/includes.sh"
 
-cd /home/openfoodweb/apps/openfoodweb/current
+echo "--- Checking environment variables"
+require_env_vars CURRENT_PATH APP DB_HOST DB_USER DB
+
+cd "$CURRENT_PATH"
 if [[ `git rev-parse HEAD` == $1 ]]; then
     mkdir -p db/backup
     pg_dump -h localhost -U openfoodweb openfoodweb_production |gzip > db/backup/staging-baseline.sql.gz

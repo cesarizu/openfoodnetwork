@@ -5,17 +5,12 @@
 # current database.
 
 set -e
+source "`dirname $0`/includes.sh"
 
 echo "--- Checking environment variables"
-ENV_VARS='CURRENT_PATH APP DB_HOST DB_USER DB'
-for var in $ENV_VARS; do
-  eval value=\$$var
-  echo "$var=$value"
-  test -n "$value"
-done
+require_env_vars CURRENT_PATH APP DB_HOST DB_USER DB
 
 cd "$CURRENT_PATH"
-source ./script/ci/includes.sh
 
 echo "Stopping unicorn and delayed job..."
 service "$APP" stop

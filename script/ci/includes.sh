@@ -5,6 +5,17 @@ function load_environment {
     fi
 }
 
+function require_env_vars {
+    for var in "$@"; do
+      eval value=\$$var
+      echo "$var=$value"
+      if [ -z "$value" ]; then
+          echo "Environment variable $var missing."
+          exit 1
+      fi
+    done
+}
+
 function master_merged {
     if [[ `git tag -l "$BUILDKITE_BRANCH"` != '' ]]; then
 	echo "'$BUILDKITE_BRANCH' is a tag."
