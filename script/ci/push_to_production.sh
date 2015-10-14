@@ -5,7 +5,7 @@ source "`dirname $0`/includes.sh"
 
 OFN_COMMIT=$(get_ofn_commit)
 if [ "$OFN_COMMIT" = 'OFN_COMMIT_NOT_FOUND' ]; then
-  OFN_COMMIT=$BUILDKITE_COMMIT
+  OFN_COMMIT=$(git rev-parse $BUILDKITE_COMMIT)
 fi
 
 echo "--- Checking environment variables"
