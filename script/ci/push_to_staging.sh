@@ -25,5 +25,5 @@ ssh "$STAGING_SSH_HOST" "$STAGING_CURRENT_PATH/script/ci/load_staging_baseline.s
 
 echo "--- Pushing to staging"
 exec 5>&1
-OUTPUT=$(git push "$STAGING_SSH_HOST" "$OFN_COMMIT":master --force 2>&1 |tee /dev/fd/5)
+OUTPUT=$(git push "$STAGING_SSH_HOST:$STAGING_CURRENT_PATH" "$OFN_COMMIT":master --force 2>&1 |tee /dev/fd/5)
 [[ $OUTPUT =~ "Done" ]]
