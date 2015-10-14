@@ -5,23 +5,32 @@
 # current database.
 
 set -e
-cd /home/openfoodweb/apps/openfoodweb/current
+
+echo "--- Checking environment variables"
+ENV_VARS='CURRENT_PATH APP DB_HOST DB_USER DB'
+for var in $ENV_VARS; do
+  eval value=\$$var
+  echo "$var=$value"
+  test -n "$value"
+done
+
+cd "$CURRENT_PATH"
 source ./script/ci/includes.sh
 
 echo "Stopping unicorn and delayed job..."
-service unicorn_openfoodweb stop
+service "$APP" stop
 RAILS_ENV=staging script/delayed_job -i 0 stop
 
 echo "Backing up current data..."
 mkdir -p db/backup
-pg_dump -h localhost -U openfoodweb openfoodweb_production |gzip > db/backup/staging-`date +%Y%m%d%H%M%S`.sql.gz
+pg_dump -h "$DB_HOST" -U "$DB_USER" "$DB" |gzip > db/backup/staging-`date +%Y%m%d%H%M%S`.sql.gz
 
 echo "Loading baseline data..."
-drop_and_recreate_database "openfoodweb_production"
-gunzip -c db/backup/staging-baseline.sql.gz |psql -h localhost -U openfoodweb openfoodweb_production
+drop_and_recreate_database "$DB"
+gunzip -c db/backup/staging-baseline.sql.gz |psql -h "$DB_HOST" -U "$DB_USER" "$DB"
 
 echo "Restarting unicorn..."
-service unicorn_openfoodweb start
+service "$APP" start
 # Delayed job is restarted by monit
 
 echo "Done!"
