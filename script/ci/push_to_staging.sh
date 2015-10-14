@@ -12,8 +12,12 @@ STAGING_REMOTE="${STAGING_REMOTE:-$STAGING_SSH_HOST:$STAGING_CURRENT_PATH}"
 echo "--- Checking environment variables"
 require_env_vars OFN_COMMIT STAGING_SSH_HOST STAGING_CURRENT_PATH STAGING_REMOTE STAGING_APP STAGING_DB_HOST STAGING_DB_USER STAGING_DB
 
-echo "--- Verifying branch is based on current master"
-exit_unless_master_merged
+if [ "$REQUIRE_MASTER_MERGED" = false ]; then
+  echo "--- NOT verifying branch is based on current master"
+else
+  echo "--- Verifying branch is based on current master"
+  exit_unless_master_merged
+fi
 
 exit 0
 echo "--- Loading baseline data"
