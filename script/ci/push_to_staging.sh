@@ -17,7 +17,7 @@ exit_unless_master_merged
 
 echo "--- Loading baseline data"
 VARS="CURRENT_PATH='$STAGING_CURRENT_PATH' APP='$APP' DB_HOST='$DB_HOST' DB_USER='$DB_USER' DB='$DB'"
-#ssh "$STAGING_SSH_HOST" "$VARS $STAGING_CURRENT_PATH/script/ci/load_staging_baseline.sh"
+ssh "$STAGING_SSH_HOST" "$VARS $STAGING_CURRENT_PATH/script/ci/load_staging_baseline.sh"
 
 echo "--- Pushing to staging"
 exec 5>&1
