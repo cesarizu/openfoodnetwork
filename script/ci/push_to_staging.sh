@@ -16,7 +16,7 @@ echo "--- Verifying branch is based on current master"
 exit_unless_master_merged
 
 echo "--- Loading baseline data"
-VARS="CURRENT_PATH='$STAGING_CURRENT_PATH' APP='$APP' DB_HOST='$DB_HOST' DB_USER='$DB_USER' DB='$DB'"
+VARS="CURRENT_PATH='$STAGING_CURRENT_PATH' APP='$STAGING_APP' DB_HOST='$STAGING_DB_HOST' DB_USER='$STAGING_DB_USER' DB='$STAGING_DB'"
 ssh "$STAGING_SSH_HOST" "$VARS $STAGING_CURRENT_PATH/script/ci/load_staging_baseline.sh"
 
 echo "--- Pushing to staging"
