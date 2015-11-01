@@ -1,0 +1,171 @@
+---
+pt-BR:
+  account: Account
+  account_bill_inc_tax: Account bill inc tax
+  account_bill_tax_rate: Account bill tax rate
+  accounts_administration_distributor: Accounts administration distributor
+  accounts_and_billing_settings: Accounts and billing settings
+  actions:
+    cancel: Cancel
+    create: Create
+  active: Active
+  add_to_cart: Add to cart
+  administration: Administration
+  are_you_sure: Are you sure
+  authorization_failure: Authorization failure
+  back_to_products_list: Back to products list
+  back_to_store: Back to store
+  billing_and_account_settings: Billing and account settings
+  cancel: Cancel
+  change_my_password: Change my password
+  charge: Charge
+  charges_sales_tax: Charges GST?
+  confirm_password: Confirm password
+  continue_shopping: Continue shopping
+  create: Create
+  date:
+    abbr_month_names: Abbr month names
+  date_range: Date range
+  default_accounts_payment_method: Default accounts payment method
+  default_accounts_shipping_method: Default accounts shipping method
+  delete: Delete
+  delivery: Delivery
+  description: Description
+  destroy: Destroy
+  devise:
+    enterprise_confirmations:
+      enterprise:
+        confirmation_not_sent: Could not send a confirmation email.
+        confirmation_sent: Confirmation email sent!
+        confirmed: Thankyou, your email address has been confirmed.
+        not_confirmed: Your email address could not be confirmed. Perhaps you have already completed this step?
+    failure:
+      invalid: ! 'Invalid email or password.
+
+        Were you a guest last time?  Perhaps you need to create an account or reset your password.
+
+'
+  display: Display
+  display_as: Display as
+  distributors: Distributors
+  edit: Edit
+  editing_user: Editing user
+  email: Email
+  end: End
+  ending_in: Ending in
+  enterprise_limit: Enterprise limit
+  environment: Environment
+  footer_about_url: About URL
+  footer_email: Email
+  footer_facebook_url: Facebook URL
+  footer_googleplus_url: Google Plus URL
+  footer_instagram_url: Instagram URL
+  footer_linkedin_url: LinkedIn URL
+  footer_links_md: Links
+  footer_logo: Logo (220x76)
+  footer_pinterest_url: Pinterest URL
+  footer_tos_url: Terms of Service URL
+  footer_twitter_url: Twitter URL
+  home: OFN
+  home_hero: Hero image
+  home_show_stats: Show statistics
+  icon: Icon
+  image: Image
+  inherited_property: Inherited property
+  insufficient_stock: Insufficient stock
+  invoice: Invoice
+  invoice_email_sent: Invoice email sent
+  item: Item
+  loading: Loading
+  logged_in_as: Logged in as
+  logged_in_succesfully: Logged in succesfully
+  login: Login
+  logo: Logo (640x130)
+  logo_mobile: Mobile logo (75x26)
+  logo_mobile_svg: Mobile logo (SVG)
+  logout: Logout
+  meta_description: Meta description
+  meta_keywords: Meta keywords
+  meta_title: Meta title
+  my_account: My account
+  my_orders: My orders
+  name: Name
+  new: New
+  new_product: New product
+  no_invoices_to_display: No invoices to display
+  no_products_found: No products found
+  none: None
+  notes: Notes
+  notice_messages:
+    variant_deleted: Variant deleted
+  on_demand: On demand
+  on_hand: On hand
+  or: Or
+  order_cycles: Order cycles
+  order_date: Order date
+  order_email_resent: Order email resent
+  order_mailer:
+    confirm_email:
+      subject: Subject
+  order_number: Order number
+  order_processed_successfully: Order processed successfully
+  out_of_stock: Out of stock
+  password: Password
+  payment_information: Payment information
+  payment_processing_failed: Payment processing failed
+  payment_state: Payment state
+  paypal:
+    flash:
+      cancel: Cancel
+  permalink: Permalink
+  pick_up: Pick up
+  price: Price
+  print: Print
+  producers: Aussie Producers
+  producers_join: Australian producers are now welcome to join the Open Food Network.
+  product_category: Product category
+  product_description: Product description
+  product_name: Product name
+  products_require_tax_category: Products require tax category
+  provider: Provider
+  provider_settings: Provider settings
+  qty: Qty
+  remember_me: Remember me
+  remove: Remove
+  resend: Resend
+  save_and_continue: Save and continue
+  say_no: Say no
+  say_yes: Say yes
+  search: Pesquisar
+  search_by_name: Pesquisar por nome ou bairro...
+  search_results: Resultados da pesquisa
+  ship: Ship
+  shipment_inc_vat: Shipment inc vat
+  shipment_state: Shipment state
+  shipping_category: Shipping category
+  shipping_tax_rate: Shipping tax rate
+  shopfront_category_ordering: Shopfront category ordering
+  shopfront_closed_message: Shopfront closed message
+  shopfront_message: Shopfront message
+  sku: Sku
+  spree_inventory_error_flash_for_insufficient_quantity: Spree inventory error flash for insufficient quantity
+  start: Start
+  status: Status
+  store: Store
+  successfully_updated: Successfully updated
+  supplier: Supplier
+  tax_category: Tax category
+  tax_settings: Tax settings
+  temperature_controlled: Temperature controlled
+  thank_you_for_your_order: Thank you for your order
+  total: Total
+  unit_name: Unit name
+  update: Update
+  update_and_recalculate_fees: Update and recalculate fees
+  update_password: Update password
+  value: Value
+  variants: Variants
+  welcome_to: ! 'Welcome to '
+  you_have_no_orders_yet: You have no orders yet
+  your_cart_is_empty: Your cart is empty
+  zone: Zone
